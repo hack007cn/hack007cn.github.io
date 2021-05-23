@@ -1,22 +1,26 @@
 <!DOCTYPE html>
-
 <html lang="zh-CN">
-
 <head>
-  
-  <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
-  <title>ESP8266制作一个小玩具 - 骇客零零七</title>
   <meta charset="UTF-8">
-  <meta name="description" content="骇客特工开放专属资源部门">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-  
-  
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
 
-    <!-- Site Verification -->
-    <meta name="baidu-site-verification" content="code-J1Qg17G6wT" />
 
-  <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/hack007cn/images/post/favicon.png" type="image/png" />
-  <meta name="description" content="ESP8266单片机的经典玩法">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{&quot;hostname&quot;:&quot;hack007.cn&quot;,&quot;root&quot;:&quot;&#x2F;&quot;,&quot;images&quot;:&quot;&#x2F;images&quot;,&quot;scheme&quot;:&quot;Gemini&quot;,&quot;version&quot;:&quot;8.4.0&quot;,&quot;exturl&quot;:false,&quot;sidebar&quot;:{&quot;position&quot;:&quot;left&quot;,&quot;display&quot;:&quot;post&quot;,&quot;padding&quot;:18,&quot;offset&quot;:12},&quot;copycode&quot;:false,&quot;bookmark&quot;:{&quot;enable&quot;:false,&quot;color&quot;:&quot;#222&quot;,&quot;save&quot;:&quot;auto&quot;},&quot;fancybox&quot;:false,&quot;mediumzoom&quot;:false,&quot;lazyload&quot;:false,&quot;pangu&quot;:false,&quot;comments&quot;:{&quot;style&quot;:&quot;tabs&quot;,&quot;active&quot;:null,&quot;storage&quot;:true,&quot;lazyload&quot;:false,&quot;nav&quot;:null},&quot;motion&quot;:{&quot;enable&quot;:true,&quot;async&quot;:false,&quot;transition&quot;:{&quot;post_block&quot;:&quot;fadeIn&quot;,&quot;post_header&quot;:&quot;fadeInDown&quot;,&quot;post_body&quot;:&quot;fadeInDown&quot;,&quot;coll_header&quot;:&quot;fadeInLeft&quot;,&quot;sidebar&quot;:&quot;fadeInUp&quot;}},&quot;prism&quot;:false,&quot;i18n&quot;:{&quot;placeholder&quot;:&quot;搜索...&quot;,&quot;empty&quot;:&quot;没有找到任何搜索结果：${query}&quot;,&quot;hits_time&quot;:&quot;找到 ${hits} 个搜索结果（用时 ${time} 毫秒）&quot;,&quot;hits&quot;:&quot;找到 ${hits} 个搜索结果&quot;}}</script>
+<meta name="description" content="ESP8266单片机的经典玩法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ESP8266制作一个小玩具">
 <meta property="og:url" content="https://hack007.cn/2021/05/esp8266-wifigj/index.html">
@@ -35,212 +39,204 @@
 <meta property="og:image" content="https://www.helloimg.com/images/2021/05/16/BVPDGr.png">
 <meta property="og:image" content="https://www.helloimg.com/images/2021/05/16/BVPkkD.png">
 <meta property="article:published_time" content="2021-05-16T07:33:02.000Z">
-<meta property="article:modified_time" content="2021-05-16T09:12:34.051Z">
+<meta property="article:modified_time" content="2021-05-23T11:14:34.775Z">
 <meta property="article:author" content="富瑞阿得">
 <meta property="article:tag" content="单片机">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.helloimg.com/images/2021/05/16/BVexzc.png">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/theme-nexmoe/hexo-theme-nexmoe@latest/source/lib/mdui_043tiny/css/mdui.css,gh/theme-nexmoe/hexo-theme-nexmoe@latest/source/lib/iconfont/iconfont.css,gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css?v=233" crossorigin>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
-  
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_2421060_07c3w9e00sab.css">
-  
-  <link rel="stylesheet" href="/css/style.css?v=1621211599059">
-<meta name="generator" content="Hexo 5.4.0"></head>
 
-<body class="mdui-drawer-body-left">
+
+<link rel="canonical" href="https://hack007.cn/2021/05/esp8266-wifigj/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{&quot;sidebar&quot;:&quot;&quot;,&quot;isHome&quot;:false,&quot;isPost&quot;:true,&quot;lang&quot;:&quot;zh-CN&quot;,&quot;comments&quot;:true,&quot;permalink&quot;:&quot;https:&#x2F;&#x2F;hack007.cn&#x2F;2021&#x2F;05&#x2F;esp8266-wifigj&#x2F;&quot;,&quot;path&quot;:&quot;2021&#x2F;05&#x2F;esp8266-wifigj&#x2F;&quot;,&quot;title&quot;:&quot;ESP8266制作一个小玩具&quot;}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">&quot;&quot;</script>
+<title>ESP8266制作一个小玩具 | 骇客零零七</title><script src="/js/config.js"></script>
   
-  <div id="nexmoe-background">
-    <div class="nexmoe-bg" style="background-image: url(https://api.btstu.cn/sjbz/api.php)"></div>
-    <div class="nexmoe-small" style="background-image: url(https://cdn.jsdelivr.net/gh/hack007cn/images/post/backimg.png)"></div>
-    <div class="mdui-appbar mdui-shadow-0">
-      <div class="mdui-toolbar">
-        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
-        <div class="mdui-toolbar-spacer"></div>
-        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
-        <a href="/" title="富瑞阿得" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/hack007cn/images/post/favicon.png" alt="富瑞阿得"></a>
-       </div>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
     </div>
   </div>
-  <div id="nexmoe-header">
-      <div class="nexmoe-drawer mdui-drawer" id="drawer">
-    <div class="nexmoe-avatar mdui-ripple">
-        <a href="/" title="富瑞阿得">
-            <img src="https://cdn.jsdelivr.net/gh/hack007cn/images/post/favicon.png" alt="富瑞阿得" alt="富瑞阿得">
-        </a>
-    </div>
-    <div class="nexmoe-count">
-        <div class="nexmoe-count-item"><span>文章</span>4 <div class="item-radius"></div><div class="item-radius item-right"></div> </div>
-        <div class="nexmoe-count-item"><span>标签</span>4<div class="item-radius"></div><div class="item-radius item-right"></div></div>
-        <div class="nexmoe-count-item"><span>分类</span>2<div class="item-radius"></div><div class="item-radius item-right"></div></div>
-    </div>
-    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="站点首页">
-            <i class="mdui-list-item-icon nexmoefont icon-meishi"></i>
-            <div class="mdui-list-item-content">
-                站点首页
-            </div>
-        </a>
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/archives.html" title="文章归档">
-            <i class="mdui-list-item-icon nexmoefont icon-hanbao1"></i>
-            <div class="mdui-list-item-content">
-                文章归档
-            </div>
-        </a>
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于特工">
-            <i class="mdui-list-item-icon nexmoefont icon-jiubei1"></i>
-            <div class="mdui-list-item-content">
-                关于特工
-            </div>
-        </a>
-        
-        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/links.html" title="我的邻居">
-            <i class="mdui-list-item-icon nexmoefont icon-cola"></i>
-            <div class="mdui-list-item-content">
-                我的邻居
-            </div>
-        </a>
-        
-    </div>
-    <aside id="nexmoe-sidebar">
-  
-  
-<!-- 站内搜索 -->
 
-<div class="nexmoe-widget-wrap">
-    <div class="nexmoe-widget nexmoe-search" >
-        <form id="search-form">
-            <label><input type="text" id="local-search-input" name="q" results="0" placeholder="站内搜索" class="input form-control" autocomplete="off" autocorrect="off"/></label>
-            <!-- 清空/重置搜索框 -->
-            <i class="fa fa-times" onclick="resetSearch()"></i>
-        </form>
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">骇客零零七</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
     </div>
-    <div id="local-search-result"></div> <!-- 搜索结果区 -->
-    <!-- <p class='no-result'></p> 无匹配时显示，注意在 CSS 中设置默认隐藏 -->
+  </div>
 </div>
 
 
-  
-  <div class="nexmoe-widget-wrap">
-    <div class="nexmoe-widget nexmoe-social">
-        <a class="mdui-ripple" href="https://jq.qq.com/?_wv=1027&k=rMQM1fZP" target="_blank" mdui-tooltip="{content: 'QQ'}" style="color: rgb(64, 196, 255);background-color: rgba(64, 196, 255, .1);">
-            <i class="nexmoefont icon-QQ"></i>
-        </a><a class="mdui-ripple" href="mailto:hack007cn@gmail.com" target="_blank" mdui-tooltip="{content: 'mail'}" style="color: rgb(249,8,8);background-color: rgba(249,8,8,.1);">
-            <i class="nexmoefont icon-mail-fill"></i>
-        </a><a class="mdui-ripple" href="https://space.bilibili.com/497796434" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
-            <i class="nexmoefont icon-bilibili"></i>
-        </a><a class="mdui-ripple" href="https://github.com/hack007cn/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
-            <i class="nexmoefont icon-github"></i>
-        </a>
-    </div>
+
+
+
+
+
 </div>
+        
   
-  
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">文章分类</h3>
-    <div class="nexmoe-widget">
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
 
-      <ul class="category-list">
+  <aside class="sidebar">
 
-        
-
-
-        
-
-        
-
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/原创教程/">原创教程</a>
-          <span class="category-list-count">3</span>
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
         </li>
-
-        
-
-        <li class="category-list-item">
-          <a class="category-list-link" href="/categories/文章资讯/">文章资讯</a>
-          <span class="category-list-count">1</span>
+        <li class="sidebar-nav-overview">
+          站点概览
         </li>
-
-        
       </ul>
 
-    </div>
-  </div>
-
-
-  
-  
-  <div class="nexmoe-widget-wrap">
-    <div id="randomtagcloud" class="nexmoe-widget tagcloud nexmoe-rainbow">
-      <a href="/tags/PS/" style="font-size: 10px;">PS</a> <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" style="font-size: 10px;">单片机</a> <a href="/tags/%E7%99%BD%E5%AB%96/" style="font-size: 10px;">白嫖</a> <a href="/tags/%E8%AE%B0%E5%BD%95/" style="font-size: 10px;">记录</a>
-    </div>
-    
-  </div>
-
-  
-  
-  <div class="nexmoe-widget-wrap">
-    <h3 class="nexmoe-widget-title">文章归档</h3>
-    <div class="nexmoe-widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">4</span></li></ul>
-    </div>
-  </div>
-
-
-<style>
-.nexmoe-widget .archive-list-count{
-	position : absolute;
-	right: 15px;
-	top:9px;
-	color: #DDD;
-}
-</style>
-
-  
-</aside>
-    <div class="nexmoe-copyright">
-        &copy; 2021 富瑞阿得
-        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-        & <a href="https://github.com/tangyuxian/hexo-theme-tangyuxian" target="_blank">Tangyuxian</a><br/>
-        <a href="http://beian.miit.gov.cn" target="_blank">WEB世界-骇客特工</a><br/>
-        
-        <div style="font-size: 12px">
-            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-            本站总访问量  <a id="busuanzi_value_site_pv"></a> 次<br />
-            本站访客数<a id="busuanzi_value_site_uv"></a>人次
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#ESP8266%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84%E7%BB%8F%E5%85%B8%E7%8E%A9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">ESP8266单片机的经典玩法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8ESP8266%E5%88%B6%E4%BD%9CWiFi%E6%94%BB%E5%87%BB%E5%92%8C%E4%BC%AA%E9%80%A0%E7%9A%84%E5%A8%B1%E4%B9%90%E5%B7%A5%E5%85%B7"><span class="nav-number">2.</span> <span class="nav-text">用ESP8266制作WiFi攻击和伪造的娱乐工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%99%E6%98%AF%E4%B8%80%E4%B8%AA%E6%9C%89WiFi%E6%A8%A1%E5%9D%97%E4%B8%94%E8%83%BD%E7%94%A8%E6%95%B0%E6%8D%AE%E7%BA%BF%E7%9B%B4%E6%8E%A5%E8%BF%9E%E6%8E%A5%E7%9A%84%E5%8D%95%E7%89%87%E6%9C%BA"><span class="nav-number">3.</span> <span class="nav-text">这是一个有WiFi模块且能用数据线直接连接的单片机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A6%96%E5%85%88%E6%88%91%E4%BB%AC%E5%B0%86ESP8266%E9%80%9A%E8%BF%87%E6%95%B0%E6%8D%AE%E7%BA%BF%E8%BF%9E%E6%8E%A5%E8%87%B3%E7%94%B5%E8%84%91"><span class="nav-number">4.</span> <span class="nav-text">首先我们将ESP8266通过数据线连接至电脑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E2%80%98%E6%88%91%E7%9A%84%E7%94%B5%E8%84%91%E2%80%99%E5%8F%B3%E9%94%AE%E7%82%B9%E5%87%BB%E2%80%98%E7%AE%A1%E7%90%86%E2%80%99%EF%BC%8C%E7%84%B6%E5%90%8E%E6%89%BE%E5%88%B0%E2%80%98%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86%E5%99%A8%E2%80%99%E9%82%A3%E4%B8%80%E6%A0%8F%E7%9A%84%E2%80%98%E7%AB%AF%E5%8F%A3%E2%80%99%E9%A1%B9"><span class="nav-number">5.</span> <span class="nav-text">在‘我的电脑’右键点击‘管理’，然后找到‘设备管理器’那一栏的‘端口’项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%92%E4%B8%8A%E5%8D%95%E7%89%87%E6%9C%BA%E5%90%8E%E6%A3%80%E6%9F%A5%E6%AD%A4%E5%A4%84%E7%AB%AF%E5%8F%A3%E6%98%AF%E5%90%A6%E5%8F%98%E5%8C%96"><span class="nav-number">6.</span> <span class="nav-text">插上单片机后检查此处端口是否变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E6%B2%A1%E6%9C%89%E4%BB%BB%E4%BD%95%E5%8F%8D%E5%BA%94%EF%BC%8C%E5%B0%B1%E6%9C%89%E5%8F%AF%E8%83%BD%E6%98%AF%E7%94%B5%E8%84%91%E5%86%85%E6%B2%A1%E6%9C%89%E8%BF%99%E4%B8%AA%E9%A9%B1%E5%8A%A8"><span class="nav-number">7.</span> <span class="nav-text">如果没有任何反应，就有可能是电脑内没有这个驱动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%80%E4%BB%A5%E5%B0%B1%E9%9C%80%E8%A6%81%E6%88%91%E4%BB%AC%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85"><span class="nav-number">8.</span> <span class="nav-text">所以就需要我们手动安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%99%E9%87%8C%E6%88%91%E7%94%A8%E7%9A%84%E6%98%AF%E9%A9%B1%E5%8A%A8%E7%B2%BE%E7%81%B5%E7%9A%84%E7%BB%BF%E8%89%B2%E5%8D%95%E6%96%87%E4%BB%B6%E7%89%88%EF%BC%88%E6%9D%A5%E6%BA%90%E6%98%AF%E6%9E%9C%E6%A0%B8%E5%89%A5%E5%A3%B3%EF%BC%89"><span class="nav-number">9.</span> <span class="nav-text">这里我用的是驱动精灵的绿色单文件版（来源是果核剥壳）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E4%B8%8A%E5%8D%95%E7%89%87%E6%9C%BA%E5%90%8E-%E6%89%93%E5%BC%80%E9%A9%B1%E5%8A%A8%E7%B2%BE%E7%81%B5%E8%BF%9B%E8%A1%8C%E6%A3%80%E6%B5%8B"><span class="nav-number">10.</span> <span class="nav-text">连接上单片机后 打开驱动精灵进行检测</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%84%B6%E5%90%8E%E5%AE%89%E8%A3%85%E6%89%80%E9%9C%80%E9%A9%B1%E5%8A%A8"><span class="nav-number">11.</span> <span class="nav-text">然后安装所需驱动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E5%AE%8C%E6%88%91%E4%BB%AC%E5%B0%B1%E5%8F%AF%E4%BB%A5%E6%89%93%E5%BC%80%E7%83%A7%E5%BD%95%E5%B7%A5%E5%85%B7%E4%BA%86"><span class="nav-number">12.</span> <span class="nav-text">安装完我们就可以打开烧录工具了</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E5%BC%80%E5%8E%8B%E7%BC%A9%E5%8C%85%E5%86%85%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E2%80%98ESP8266Flasher-exe%E2%80%99"><span class="nav-number">13.</span> <span class="nav-text">打开压缩包内应用程序‘ESP8266Flasher.exe’</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E5%87%BA%E5%88%9A%E6%89%8D%E6%8F%92%E4%B8%8A%E5%8D%95%E7%89%87%E6%9C%BA%E6%97%B6%E6%98%BE%E7%A4%BA%E7%9A%84%E7%AB%AF%E5%8F%A3%E5%8F%B7"><span class="nav-number">14.</span> <span class="nav-text">选择出刚才插上单片机时显示的端口号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E2%80%98config%E2%80%99%E9%80%89%E9%A1%B9%E4%B8%AD%E4%BF%AE%E6%94%B9%E7%83%A7%E5%BD%95%E6%96%87%E4%BB%B6%E2%80%99Wi%E4%B8%AD%E6%96%87%E7%89%88%E7%95%8C%E9%9D%A2-bin%E2%80%98%E7%9A%84%E8%B7%AF%E5%BE%84"><span class="nav-number">15.</span> <span class="nav-text">在‘config’选项中修改烧录文件’Wi中文版界面.bin‘的路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%84%B6%E5%90%8E%E5%8F%AF%E4%BB%A5%E6%A0%B9%E6%8D%AE%E6%8E%A8%E8%8D%90%E7%A4%BA%E4%BE%8B%E5%9B%BE%E7%89%87%E4%BF%AE%E6%94%B9%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE%EF%BC%88%E8%87%AA%E8%A1%8C%E9%80%89%E6%8B%A9%EF%BC%89"><span class="nav-number">16.</span> <span class="nav-text">然后可以根据推荐示例图片修改相关配置（自行选择）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%E7%82%B9%E5%87%BBFlash%E8%BF%9B%E8%A1%8C%E7%83%A7%E5%BD%95"><span class="nav-number">17.</span> <span class="nav-text">最后点击Flash进行烧录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%89%E5%BE%85%E5%B7%A6%E4%B8%8B%E8%A7%92%E5%87%BA%E7%8E%B0%E7%BB%BF%E6%A0%87%E5%B0%B1%E8%A1%A8%E7%A4%BA%E7%83%A7%E5%BD%95%E6%88%90%E5%8A%9F"><span class="nav-number">18.</span> <span class="nav-text">等待左下角出现绿标就表示烧录成功</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%99%E6%97%B6%E5%80%99%E5%8F%AA%E9%9C%80%E8%A6%81%E9%80%9A%E8%BF%87%E6%95%B0%E6%8D%AE%E7%BA%BF%E7%BB%99%E5%8D%95%E7%89%87%E6%9C%BA%E4%BE%9B%E7%94%B5%E5%8D%B3%E5%8F%AF%EF%BC%88%E5%8F%AF%E4%BB%A5%E8%BF%9E%E4%B8%8A%E5%85%85%E7%94%B5%E5%AE%9D%E6%9B%B4%E5%8A%A0%E6%96%B9%E4%BE%BF%EF%BC%89"><span class="nav-number">19.</span> <span class="nav-text">这时候只需要通过数据线给单片机供电即可（可以连上充电宝更加方便）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E7%94%B5%E5%90%8E-%E7%94%A8%E6%88%91%E4%BB%AC%E7%9A%84%E6%89%8B%E6%9C%BA%E6%88%96%E7%94%B5%E8%84%91%E8%BF%9E%E6%8E%A5%E4%B8%8A%E5%8D%95%E7%89%87%E6%9C%BA%E7%9A%84WiFi-%E2%80%99Wi-PWN%E2%80%99"><span class="nav-number">20.</span> <span class="nav-text">通电后 用我们的手机或电脑连接上单片机的WiFi ’Wi-PWN’</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5%E4%B8%8A%E7%94%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%93%E5%BC%80%E7%AE%A1%E7%90%86%E5%9C%B0%E5%9D%80%EF%BC%9A192-168-4-1"><span class="nav-number">21.</span> <span class="nav-text">连接上用浏览器打开管理地址：192.168.4.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%84%B6%E5%90%8E%E8%AE%BE%E7%BD%AE%E7%AE%A1%E7%90%86%E7%9A%84WiFi%E5%90%8D%E7%A7%B0%E5%92%8C%E5%AF%86%E7%A0%81"><span class="nav-number">22.</span> <span class="nav-text">然后设置管理的WiFi名称和密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%A5%BD%E5%90%8E%E8%BF%9E%E6%8E%A5%E4%B8%8A%E6%96%B0%E7%9A%84WiFi-%E5%86%8D%E9%87%8D%E6%96%B0%E6%89%93%E5%BC%80%E7%AE%A1%E7%90%86%E5%9C%B0%E5%9D%80%EF%BC%9A192-168-4-1"><span class="nav-number">23.</span> <span class="nav-text">设置好后连接上新的WiFi 再重新打开管理地址：192.168.4.1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%B1%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%E6%A8%A1%E5%9D%97%E7%9A%84%E5%8A%9F%E8%83%BD%E4%BA%86"><span class="nav-number">24.</span> <span class="nav-text">就可以使用模块的功能了</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%86%E9%A2%91%E5%9C%B0%E5%9D%80"><span class="nav-number"></span> <span class="nav-text">视频地址</span></a></div>
         </div>
-        
-        
-    </div>
+        <!--/noindex-->
 
-</div><!-- .nexmoe-drawer -->
-
-  </div>
-  <div id="nexmoe-content">
-    <div class="nexmoe-primary">
-        <div class="nexmoe-post">
-  
-      <div class="nexmoe-post-cover" style="padding-bottom: NaN%;"> 
-          <img data-src="https://www.helloimg.com/images/2021/05/16/BVexzc.png" data-sizes="auto" alt="ESP8266制作一个小玩具" class="lazyload">
-          <h1>ESP8266制作一个小玩具</h1>
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">富瑞阿得</p>
+  <div class="site-description" itemprop="description">骇客特工开放专属资源部门</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
       </div>
-  
-  
-  <div class="nexmoe-post-meta nexmoe-rainbow" style="margin:10px 0!important;">
-    <a><i class="nexmoefont icon-calendar-fill"></i>2021年05月16日</a>
-    <a><i class="nexmoefont icon-areachart"></i>421 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
 </div>
 
-  <div class="nexmoe-post-right">
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
     
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
   </div>
 
-  <article>
-    <h2 id="ESP8266单片机的经典玩法"><a href="#ESP8266单片机的经典玩法" class="headerlink" title="ESP8266单片机的经典玩法"></a>ESP8266单片机的经典玩法</h2> <span id="more"></span>
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://hack007.cn/2021/05/esp8266-wifigj/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="富瑞阿得">
+      <meta itemprop="description" content="骇客特工开放专属资源部门">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="骇客零零七">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ESP8266制作一个小玩具
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-05-16 15:33:02" itemprop="dateCreated datePublished" datetime="2021-05-16T15:33:02+08:00">2021-05-16</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-05-23 19:14:34" itemprop="dateModified" datetime="2021-05-23T19:14:34+08:00">2021-05-23</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%8E%9F%E5%88%9B%E6%95%99%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">原创教程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="ESP8266单片机的经典玩法"><a href="#ESP8266单片机的经典玩法" class="headerlink" title="ESP8266单片机的经典玩法"></a>ESP8266单片机的经典玩法</h3> <span id="more"></span>
 <h3 id="用ESP8266制作WiFi攻击和伪造的娱乐工具"><a href="#用ESP8266制作WiFi攻击和伪造的娱乐工具" class="headerlink" title="用ESP8266制作WiFi攻击和伪造的娱乐工具"></a>用ESP8266制作WiFi攻击和伪造的娱乐工具</h3><p><img src="https://www.helloimg.com/images/2021/05/16/BVexzc.png"> </p>
 <h3 id="这是一个有WiFi模块且能用数据线直接连接的单片机"><a href="#这是一个有WiFi模块且能用数据线直接连接的单片机" class="headerlink" title="这是一个有WiFi模块且能用数据线直接连接的单片机"></a>这是一个有WiFi模块且能用数据线直接连接的单片机</h3><h3 id="首先我们将ESP8266通过数据线连接至电脑"><a href="#首先我们将ESP8266通过数据线连接至电脑" class="headerlink" title="首先我们将ESP8266通过数据线连接至电脑"></a>首先我们将ESP8266通过数据线连接至电脑</h3><h3 id="在‘我的电脑’右键点击‘管理’，然后找到‘设备管理器’那一栏的‘端口’项"><a href="#在‘我的电脑’右键点击‘管理’，然后找到‘设备管理器’那一栏的‘端口’项" class="headerlink" title="在‘我的电脑’右键点击‘管理’，然后找到‘设备管理器’那一栏的‘端口’项"></a>在‘我的电脑’右键点击‘管理’，然后找到‘设备管理器’那一栏的‘端口’项</h3><p><img src="https://www.helloimg.com/images/2021/05/16/BVPUEb.png"> </p>
 <h3 id="插上单片机后检查此处端口是否变化"><a href="#插上单片机后检查此处端口是否变化" class="headerlink" title="插上单片机后检查此处端口是否变化"></a>插上单片机后检查此处端口是否变化</h3><h3 id="如果没有任何反应，就有可能是电脑内没有这个驱动"><a href="#如果没有任何反应，就有可能是电脑内没有这个驱动" class="headerlink" title="如果没有任何反应，就有可能是电脑内没有这个驱动"></a>如果没有任何反应，就有可能是电脑内没有这个驱动</h3><h3 id="所以就需要我们手动安装"><a href="#所以就需要我们手动安装" class="headerlink" title="所以就需要我们手动安装"></a>所以就需要我们手动安装</h3><h3 id="这里我用的是驱动精灵的绿色单文件版（来源是果核剥壳）"><a href="#这里我用的是驱动精灵的绿色单文件版（来源是果核剥壳）" class="headerlink" title="这里我用的是驱动精灵的绿色单文件版（来源是果核剥壳）"></a>这里我用的是驱动精灵的绿色单文件版（来源是果核剥壳）</h3><p><a target="_blank" rel="noopener" href="https://hack007.lanzoui.com/iNEMzp6gvha">下载地址</a> </p>
@@ -254,794 +250,76 @@
 <h3 id="这时候只需要通过数据线给单片机供电即可（可以连上充电宝更加方便）"><a href="#这时候只需要通过数据线给单片机供电即可（可以连上充电宝更加方便）" class="headerlink" title="这时候只需要通过数据线给单片机供电即可（可以连上充电宝更加方便）"></a>这时候只需要通过数据线给单片机供电即可（可以连上充电宝更加方便）</h3><h3 id="通电后-用我们的手机或电脑连接上单片机的WiFi-’Wi-PWN’"><a href="#通电后-用我们的手机或电脑连接上单片机的WiFi-’Wi-PWN’" class="headerlink" title="通电后 用我们的手机或电脑连接上单片机的WiFi ’Wi-PWN’"></a>通电后 用我们的手机或电脑连接上单片机的WiFi ’Wi-PWN’</h3><h3 id="连接上用浏览器打开管理地址：192-168-4-1"><a href="#连接上用浏览器打开管理地址：192-168-4-1" class="headerlink" title="连接上用浏览器打开管理地址：192.168.4.1"></a>连接上用浏览器打开管理地址：192.168.4.1</h3><p><img src="https://www.helloimg.com/images/2021/05/16/BVPzIq.png"> </p>
 <h3 id="然后设置管理的WiFi名称和密码"><a href="#然后设置管理的WiFi名称和密码" class="headerlink" title="然后设置管理的WiFi名称和密码"></a>然后设置管理的WiFi名称和密码</h3><p><img src="https://www.helloimg.com/images/2021/05/16/BVPDGr.png"> </p>
 <h3 id="设置好后连接上新的WiFi-再重新打开管理地址：192-168-4-1"><a href="#设置好后连接上新的WiFi-再重新打开管理地址：192-168-4-1" class="headerlink" title="设置好后连接上新的WiFi 再重新打开管理地址：192.168.4.1"></a>设置好后连接上新的WiFi 再重新打开管理地址：192.168.4.1</h3><p><img src="https://www.helloimg.com/images/2021/05/16/BVPkkD.png"> </p>
-<h3 id="就可以使用模块的功能了"><a href="#就可以使用模块的功能了" class="headerlink" title="就可以使用模块的功能了"></a>就可以使用模块的功能了</h3>
+<h3 id="就可以使用模块的功能了"><a href="#就可以使用模块的功能了" class="headerlink" title="就可以使用模块的功能了"></a>就可以使用模块的功能了</h3><h2 id="视频地址"><a href="#视频地址" class="headerlink" title="视频地址"></a>视频地址</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1y5411u7mV/">https://www.bilibili.com/video/BV1y5411u7mV/</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag"># 单片机</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/05/vivo-zhutibaipiao/" rel="prev" title="vivo主题白嫖教程">
+                  <i class="fa fa-chevron-left"></i> vivo主题白嫖教程
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
-
-  
-    
-  <div class="nexmoe-post-copyright">
-    <strong>本文作者：</strong>富瑞阿得<br>
-    
-    <strong>本文链接：</strong><a href="https://hack007.cn/2021/05/esp8266-wifigj/" title="https:&#x2F;&#x2F;hack007.cn&#x2F;2021&#x2F;05&#x2F;esp8266-wifigj&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;hack007.cn&#x2F;2021&#x2F;05&#x2F;esp8266-wifigj&#x2F;</a><br>
-
-    
-      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
-    
-  </div>
-
-
-  
-  
-  <div class="nexmoe-post-meta nexmoe-rainbow">
-    
-        <a class="nexmoefont icon-appstore-fill -link" href="/categories/%E5%8E%9F%E5%88%9B%E6%95%99%E7%A8%8B/">原创教程</a>
-    
-    
-        <a class="nexmoefont icon-tag-fill -none-link" href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" rel="tag">单片机</a>
-    
 </div>
 
-  <div class="nexmoe-post-footer">
-    <section class="nexmoe-comment">
-    <div class="valine"></div>
-<script src='https://cdn.jsdelivr.net/npm/valine@1.3.9/dist/Valine.min.js'></script>
-<script>
-    // 使用方法 https://valine.js.org/quickstart.html
-    new Valine({
-        el: '.valine',
-        appId: 'gKfwUq7XB3lVYCXbVswjQcWh-gzGzoHsz',
-        appKey: 'TiKX7IrP6KYcEcQwPOhN3m3I'
-    })
-</script>
-</section>
-  </div>
-</div>
-        <div class="nexmoe-post-right">
-          
-            <div class="nexmoe-fixed">
-              <div class="nexmoe-tool">
-                <a href="#" aria-label="回到顶部" title="top"><button class="mdui-fab mdui-ripple"><i class="nexmoefont icon-caret-top"></i></button></a>
-              </div>
-            </div>
-          
-        </div>
-    </div>
-  </div>
-  <div id="nexmoe-pendant">
-    <div class="nexmoe-drawer mdui-drawer nexmoe-pd" id="drawer">
-        
-            <div class="nexmoe-pd-item">
-                <div class="clock">
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="memory"></div>
-        <div class="needle" id="hours"></div>
-        <div class="needle" id="minutes"></div>
-        <div class="needle" id="seconds"></div>
-        <div class="clock_logo">
 
-        </div>
+
+
+
+<script src="/js/comments.js"></script>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">富瑞阿得</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
 
     </div>
-<style>
-    .clock {
-        background-color: #ffffff;
-        width: 70vw;
-        height: 70vw;
-        max-width: 70vh;
-        max-height: 70vh;
-        border: solid 2.8vw #242424;
-        position: relative;
-        overflow: hidden;
-        border-radius: 50%;
-        box-sizing: border-box;
-        box-shadow: 0 1.4vw 2.8vw rgba(0, 0, 0, 0.8);
-        zoom:0.2
-    }
-
-    .memory {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform-origin: center;
-    }
-
-    .memory:nth-child(1) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(0deg) translateY(-520%);
-    }
-
-    .memory:nth-child(2) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(6deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(3) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(12deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(4) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(18deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(5) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(24deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(6) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(30deg) translateY(-520%);
-    }
-
-    .memory:nth-child(7) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(36deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(8) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(42deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(9) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(48deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(10) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(54deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(11) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(60deg) translateY(-520%);
-    }
-
-    .memory:nth-child(12) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(66deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(13) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(72deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(14) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(78deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(15) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(84deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(16) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(90deg) translateY(-520%);
-    }
-
-    .memory:nth-child(17) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(96deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(18) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(102deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(19) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(108deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(20) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(114deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(21) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(120deg) translateY(-520%);
-    }
-
-    .memory:nth-child(22) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(126deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(23) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(132deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(24) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(138deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(25) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(144deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(26) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(150deg) translateY(-520%);
-    }
-
-    .memory:nth-child(27) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(156deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(28) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(162deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(29) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(168deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(30) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(174deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(31) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(180deg) translateY(-520%);
-    }
-
-    .memory:nth-child(32) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(186deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(33) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(192deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(34) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(198deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(35) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(204deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(36) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(210deg) translateY(-520%);
-    }
-
-    .memory:nth-child(37) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(216deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(38) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(222deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(39) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(228deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(40) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(234deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(41) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(240deg) translateY(-520%);
-    }
-
-    .memory:nth-child(42) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(246deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(43) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(252deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(44) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(258deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(45) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(264deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(46) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(270deg) translateY(-520%);
-    }
-
-    .memory:nth-child(47) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(276deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(48) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(282deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(49) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(288deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(50) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(294deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(51) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(300deg) translateY(-520%);
-    }
-
-    .memory:nth-child(52) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(306deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(53) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(312deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(54) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(318deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(55) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(324deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(56) {
-        background-color: #424242;
-        width: 2%;
-        height: 8%;
-        transform: translate(-50%, -50%) rotate(330deg) translateY(-520%);
-    }
-
-    .memory:nth-child(57) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(336deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(58) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(342deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(59) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(348deg) translateY(-1461%);
-    }
-
-    .memory:nth-child(60) {
-        background-color: #949494;
-        width: 1%;
-        height: 3%;
-        transform: translate(-50%, -50%) rotate(354deg) translateY(-1461%);
-    }
-
-    .needle {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform-origin: center;
-    }
-
-    .needle#hours {
-        background-color: #1f1f1f;
-        width: 4%;
-        height: 30%;
-        transform-origin: center 75%;
-        transform: translate(-50%, -75%);
-    }
-
-    .needle#hours.moving {
-        transition: transform 150ms ease-out;
-    }
-
-    .needle#hours:after {
-        content: '';
-        background-color: #1f1f1f;
-        width: 4vw;
-        height: 4vw;
-        max-width: 4vh;
-        max-height: 4vh;
-        display: block;
-        position: absolute;
-        top: 75%;
-        left: 50%;
-        box-sizing: border-box;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .needle#minutes {
-        background-color: #1f1f1f;
-        width: 2%;
-        height: 45%;
-        transform-origin: center 75%;
-        transform: translate(-50%, -75%);
-    }
-
-    .needle#minutes.moving {
-        transition: transform 150ms ease-out;
-    }
-
-    .needle#minutes:after {
-        content: '';
-        background-color: #1f1f1f;
-        width: 4vw;
-        height: 4vw;
-        max-width: 4vh;
-        max-height: 4vh;
-        display: block;
-        position: absolute;
-        top: 75%;
-        left: 50%;
-        box-sizing: border-box;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    .needle#seconds {
-        background-color: #cb2f2f;
-        width: 1%;
-        height: 50%;
-        transform-origin: center 75%;
-        transform: translate(-50%, -75%);
-    }
-
-    .needle#seconds.moving {
-        transition: transform 150ms ease-out;
-    }
-
-    .needle#seconds:after {
-        content: '';
-        background-color: #cb2f2f;
-        width: 2.5vw;
-        height: 2.5vw;
-        max-width: 2.5vh;
-        max-height: 2.5vh;
-        display: block;
-        position: absolute;
-        top: 75%;
-        left: 50%;
-        box-sizing: border-box;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-    }
-    .clock_logo{
-        width: 10vw;
-        height: 10vw;
-        max-width: 10vh;
-        max-height: 10vh;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        box-sizing: border-box;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-    }
-    @media (min-width: 100vh) {
-        .clock {
-            border: solid 2.8vh #242424;
-            box-shadow: 0 1.4vh 2.8vh rgba(0, 0, 0, 0.8);
-        }
-    }
-
-</style>
-
-
-
-
-
-            </div>
-        
-            <div class="nexmoe-pd-item">
-                <div class="qweather" >
-    <div id="he-plugin-standard"></div>
-    <div class="qweather-logo">
-
-    </div>
-
-</div>
-<style>
-    .qweather{
-        position: relative;
-    }
-    .qweather-logo{
-        position: absolute;
-        right: 0;
-        top: -15px;
-        width: 40px;
-        height: 40px;
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-    }
-</style>
-<script>
-  WIDGET = {
-    "CONFIG": {
-      "layout": "2",
-      "width": "260",
-      "height": "220",
-      "background": "5",
-      "dataColor": "5d5d5d",
-      "borderRadius": "15",
-      "key": "f74d1e1690e6432d801e97fa2f05a162"
-    }
-  }
-</script>
-<script src="https://widget.qweather.net/standard/static/js/he-standard-common.js?v=2.0"></script>
-
-            </div>
-        
-</div>
-<style>
-    .nexmoe-pd {
-        left: auto;
-        top: 40px;
-        right: 0;
-    }
-    .nexmoe-pd-item{
-       display: flex;
-        justify-content: center;
-        margin-bottom: 30px;
-    }
-</style>
-
-  </div>
-  <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js?v=1"></script>
-<script>
-	hljs.initHighlightingOnLoad();
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-
-
-<script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
- <script src="/js/app.js?v=1621211599060"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
-<script>
-	$(".justified-gallery").justifiedGallery({
-		rowHeight: 160,
-		margins: 10,
-	});
-</script>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
   
 
 
-    <!-- CNZZ Analytics -->
-<div hidden>
-    <script src="//s95.cnzz.com/z_stat.php?id=1279270987&web_id=1279270987" language="JavaScript"></script>
-</div>
 
 
 
 
-<!-- hexo injector body_end start -->
-<script src="/js/clock.js"></script>
+  
 
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
 
-<script src="/js/search.js"></script>
-<!-- hexo injector body_end end --></body>
 
+
+
+</body>
 </html>
-
-<script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/9afb3792.js","daovoice")</script>
-<script>
-  daovoice('init', {
-    app_id: "9afb3792"
-  });
-  daovoice('update');
-</script>
-
